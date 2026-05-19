@@ -17,3 +17,15 @@ provider "aws" {
 resource "aws_iam_user" "lb" {
   name = "Adam"
 }
+
+resource "aws_iam_group" "admins" {
+  name = "CloudDevOpsAdministrators"
+}
+
+resource "aws_iam_user_group_membership" "adam_admin_membership" {
+  user = aws_iam_user.lb.name
+
+  groups = [
+    aws_iam_group.admins.name,
+  ]
+}
