@@ -1,11 +1,23 @@
 provider "aws" {
-    access_key = "${var.aws_access_key}"
-    secret_key = "${var.aws_secret_key}"
-    region = "${var.region}"
+  region = "ap-south-1"
 }
 
-module "s3" {
-    source = "<path-to-S3-folder>"
-    #bucket name should be unique
-    bucket_name = "<Bucket-name>"       
+resource "aws_db_instance" "postgres" {
+  identifier             = "prod-postgres"
+  allocated_storage      = 20
+  engine                 = "postgres"
+  engine_version         = "15"
+  instance_class         = "db.t3.micro"
+
+  username               = "admin"
+  password               = "ChangeMe123!"
+
+  publicly_accessible    = false
+  skip_final_snapshot    = true
+
+  backup_retention_period = 7
+
+  tags = {
+    Environment = "prod"
+  }
 }
