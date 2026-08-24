@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 module "s3" {
-    source = "<path-to-S3-folder>"
+    source = "./s3"
     #bucket name should be unique
-    bucket_name = "<Bucket-name>"       
+   # bucket_name = "<Bucket-name>"       
 }
