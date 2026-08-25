@@ -2,11 +2,10 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.27"
+      version = "~> 5.0"
     }
   }
-
-  required_version = ">= 0.14.9"
+  required_version = ">= 1.0.0"
 }
 
 provider "aws" {
@@ -15,7 +14,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-064ff912f78e3e561"
+  ami           = "ami-0904037a6ff76c269" # Fresh Ubuntu 22.04 LTS for us-east-2
   instance_type = "t3.micro"
 
   tags = {
