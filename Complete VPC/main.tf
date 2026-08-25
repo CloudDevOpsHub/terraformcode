@@ -105,6 +105,6 @@ resource "aws_route_table_association" "private" {
 }
 
 # 11. Create Custom Network ACL
-resource "aws_network_acl" "custom" {
+resource "aws_network_acl" "nacl" {
   vpc_id     = aws_vpc.main.id
   subnet_ids = [aws_subnet.public.id, aws_subnet.private.id]
