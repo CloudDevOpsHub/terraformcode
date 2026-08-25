@@ -22,3 +22,8 @@ resource "aws_instance" "app_server" {
     Name = "ExampleAppServerInstance"
   }
 }
+
+
+resource "s3_bucket" {
+ Name = "deepak_s3"
+}
