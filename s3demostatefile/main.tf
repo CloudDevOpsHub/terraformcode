@@ -9,14 +9,11 @@ terraform {
   required_version = ">= 0.14.9"
 }
 
-resource "aws_s3_bucket" "demo" {
-  bucket = "vikas-terraform-demo-12345"
+provider "aws" {
+  profile = "default"
+  region  = "us-west-2"
 }
 
-resource "aws_s3_bucket_versioning" "demo" {
-  bucket = aws_s3_bucket.demo.id
-
-  versioning_configuration {
-    status = "Enabled"
-  }
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-terraform-bucket-20260825"
 }
