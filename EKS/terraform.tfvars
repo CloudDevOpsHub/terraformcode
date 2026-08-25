@@ -1,3 +1,3 @@
-region = "us-east-1"
+region = "us-east-2"
 cluster_name = "terraform-eks-demo"
 kubernetes_version = "1.36"
